@@ -29,3 +29,20 @@ if(DEFINED TARPARSE_COMPILE_TESTS)
         tarparse
     )
 endif()
+
+if(DEFINED TARPARSE_COMPILE_FUZZ)
+    add_executable(tarparse_fuzzer
+        src/fuzz/main.cpp
+    )
+    target_compile_options(tarparse_fuzzer PRIVATE
+        --std=c++17 -Wall -Wextra -Werror=return-type
+        -g -ggdb
+        -fsanitize=address
+    )
+    target_link_options(tarparse_fuzzer PRIVATE
+        -fsanitize=address
+    )
+    target_link_libraries(tarparse_fuzzer PRIVATE
+        tarparse
+    )
+endif()
