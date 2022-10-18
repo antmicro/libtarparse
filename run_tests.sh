@@ -7,7 +7,7 @@ echo "Script directory: $SCRIPTDIR"
 # Create build directory
 mkdir -v -p "$SCRIPTDIR/build/"
 pushd "$SCRIPTDIR/build/"
-cmake ../
+cmake ../ -DTARPARSE_COMPILE_TESTS=
 make
 popd
 

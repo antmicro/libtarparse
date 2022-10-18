@@ -1,23 +1,31 @@
-project(libtarparse CXX)
 cmake_minimum_required(VERSION 3.18)
+project(libtarparse
+    LANGUAGES CXX
+    DESCRIPTION "A C++ tar parsing libary"
+    VERSION 0.0.1
+)
 
 #  Library target
 add_library(tarparse INTERFACE)
+add_library(libtarparse::tarparse ALIAS tarparse)
 target_include_directories(tarparse INTERFACE ./src/include/)
 
 #  Test suite
-add_executable(tarparse_tests
-    src/test/main.cpp
-    src/test/test-tar-parser.cpp
-    src/test/test-num-parser.cpp
+if(DEFINED TARPARSE_COMPILE_TESTS)
+    add_executable(tarparse_tests
+        src/test/main.cpp
+        src/test/test-tar-parser.cpp
+        src/test/test-num-parser.cpp
     )
-target_compile_options(tarparse_tests PRIVATE
-    --std=c++17 -Wall -Wextra -Werror=return-type
-    -g -ggdb
-    -fsanitize=address
+    target_compile_options(tarparse_tests PRIVATE
+        --std=c++17 -Wall -Wextra -Werror=return-type
+        -g -ggdb
+        -fsanitize=address
     )
-target_link_options(tarparse_tests PRIVATE
-    -fsanitize=address
+    target_link_options(tarparse_tests PRIVATE
+        -fsanitize=address
     )
-target_link_libraries(tarparse_tests PRIVATE
-    tarparse)
+    target_link_libraries(tarparse_tests PRIVATE
+        tarparse
+    )
+endif()
