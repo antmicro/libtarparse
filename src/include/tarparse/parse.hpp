@@ -46,10 +46,15 @@ namespace tarparse {
         constexpr TarParser() = default;
         ~TarParser() = default;
 
-        /*
-         *  Feed the parser with archive data.
-         *  Returns ```TarParserError::Ok``` on success, and an error code otherwise.
-         */
+        /**
+         *  \brief      Feed the parser with archive data.
+         *
+         *  \param buffer       Buffer containing the next chunk of archive data
+         *  \param bufferlen    Length of the buffer
+         *
+         *  \returns    ```TarParserError::Ok``` on success
+         *              Error code on failure
+         **/
         [[nodiscard]] constexpr ParserError update(uint8_t const* buffer, size_t bufferlen)
         {
             //  Consume the entire buffer
@@ -70,6 +75,13 @@ namespace tarparse {
             return ParserError::Ok;
         }
 
+        /**
+         *  \brief       Reset the parser state
+         *
+         *  Resets the parser state. The following call to update() will behave as if
+         *  a completely new TarParser object was created.
+         *
+         */
         constexpr void reset()
         {
             m_cursor = 0;
