@@ -1,9 +1,10 @@
 # tarparse
 
-Copyright (c) 2022 Antmicro
+Copyright (c) 2022 [Antmicro](https://www.antmicro.com)
 
 tarparse is a small, object oriented, template-based C++ library for extracting file data from a tarball stream. It was made with the following considerations in mind:
 
+- Header-only
 - No allocations during parse time
 - Freestanding - no dependencies on host facilities
 - No stream backtracking
@@ -101,4 +102,4 @@ Note: this requires clang to be installed.
 
 # License
 
-This library is provided under the Apache-2.0 license. See the LICENSE file for more details.
+This library is provided under the Apache-2.0 license. See [the LICENSE file](LICENSE) for more details.
