@@ -91,7 +91,11 @@ The library uses clang-format for code formatting. Make sure to re-run clang-for
 
 ## Running tests
 
-To run the provided test suite, run the provided ```run_tests.sh``` script in the project root folder.
+To run the provided test suite, run the provided ```run_tests.sh``` script in the ```scripts``` folder.
+
+## Running the fuzzer
+
+A fuzzing target utilizing the [libFuzzer](https://llvm.org/docs/LibFuzzer.html) library is provided. To run the fuzzer, run the provided ```run_fuzzer.sh``` script in the ```scripts``` folder. Corpus to be used for fuzzing can be added to the ```src/fuzz/corpus``` directory.
 
 # License
 
