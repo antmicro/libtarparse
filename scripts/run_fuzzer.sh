@@ -25,8 +25,8 @@ popd
 
 # Run the fuzzer with the provided corpus
 pushd $FUZZWORKDIR
-$FUZZBUILDDIR/tarparse_fuzzer corpus/
-RC=$?
+RC=0
+$FUZZBUILDDIR/tarparse_fuzzer corpus/ || RC=$?
 popd
 
 exit $RC
