@@ -97,6 +97,8 @@ To run the provided test suite, run the provided ```run_tests.sh``` script in th
 
 A fuzzing target utilizing the [libFuzzer](https://llvm.org/docs/LibFuzzer.html) library is provided. To run the fuzzer, run the provided ```run_fuzzer.sh``` script in the ```scripts``` folder. Corpus to be used for fuzzing can be added to the ```src/fuzz/corpus``` directory.
 
+Note: this requires clang to be installed.
+
 # License
 
 This library is provided under the Apache-2.0 license. See the LICENSE file for more details.
