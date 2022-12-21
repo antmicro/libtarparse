@@ -10,9 +10,14 @@
 #include <string.h>
 
 namespace tarparse {
-    //  This represents the metadata sent via the callback to the user.
+    //  This represents the metadata passed via the callback to the user.
     struct FileMeta {
+        //  Null-terminated filename of the currently extracted file
+        //  WARNING: Tar filenames should be considered as an arbitrary, null-terminated byte string.
+        //  There is no requirement for any particular encoding of the filename. The type of this array
+        //  is purely for convenience.
         char name[100];
+        //  File size
         size_t size;
     };
 
