@@ -30,17 +30,19 @@ if(DEFINED TARPARSE_COMPILE_TESTS)
     )
 endif()
 
+# Fuzzing target
+# Assumes that clang is used as a compiler
 if(DEFINED TARPARSE_COMPILE_FUZZ)
     add_executable(tarparse_fuzzer
-        src/fuzz/main.cpp
+        src/fuzz/target.cpp
     )
     target_compile_options(tarparse_fuzzer PRIVATE
         --std=c++17 -Wall -Wextra -Werror=return-type
         -g -ggdb
-        -fsanitize=address
+        -fsanitize=address,fuzzer
     )
     target_link_options(tarparse_fuzzer PRIVATE
-        -fsanitize=address
+        -fsanitize=address,fuzzer
     )
     target_link_libraries(tarparse_fuzzer PRIVATE
         tarparse
