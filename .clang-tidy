@@ -1,0 +1,18 @@
+Checks:          'bugprone*,
+                  cppcore*,
+                  clang-analyzer*,
+                  modernize*,
+                  performance*,
+                  portability*,
+                  readability*,
+                  -*-deprecated-headers,
+                  -*-use-trailing-return-type,
+                  -*-avoid-c-arrays,
+                  -*-magic-numbers'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle:     file
+CheckOptions:
+      - key:     readability-implicit-bool-conversion.AllowPointerConditions
+        value:   '1'
