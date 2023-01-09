@@ -100,6 +100,10 @@ A fuzzing target utilizing the [libFuzzer](https://llvm.org/docs/LibFuzzer.html)
 
 Note: this requires clang to be installed.
 
+## Packaging
+
+Run the provided ```create_release_header.sh``` script to generate a single header version of the library, by utilizing the [Heady](https://github.com/JamesBoer/Heady) utility.
+
 # License
 
 This library is provided under the Apache-2.0 license. See [the LICENSE file](LICENSE) for more details.
