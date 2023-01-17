@@ -1,0 +1,33 @@
+name: Package as a single header
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v3
+
+      # Install basic development packages
+      # We also explicitly uninstall GCC, in order to make CMake use clang instead
+      # This is required for compiling the Heady tool, which fails when using the GCC
+      # available in the current ubuntu-latest (Jammy 22.04, GCC 11.3.0) due to a bug: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101831
+      - name: Install required packages
+        run: |
+          apt update && apt install -y --no-install-recommends cmake clang libc-dev git make ca-certificates openssl libssl-dev locales binutils
+          apt remove -y gcc
+
+      - name: Package the library
+        run: |
+          bash -c "./scripts/create_release_header.sh"
+
+      - name: Upload single-header artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: tarparse.hpp
+          path: ./build-release/tarparse.hpp

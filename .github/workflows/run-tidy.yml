@@ -1,0 +1,22 @@
+name: Run static analysis
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  tidy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v3
+
+      - name: Install required packages
+        run: |
+          apt update && apt install -y --no-install-recommends cmake gcc clang clang-tidy clang-format make
+
+      - name: Run clang-tidy
+        run: |
+          bash -c ./scripts/run_lint.sh
