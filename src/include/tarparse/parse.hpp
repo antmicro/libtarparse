@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2022 Antmicro
+// Copyright (c) 2023 Antmicro
 // SPDX-License-Identifier: Apache-2.0
 //
 #pragma once
