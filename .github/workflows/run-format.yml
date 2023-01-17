@@ -15,7 +15,7 @@ jobs:
 
       - name: Install required packages
         run: |
-          apt update && apt install -y --no-install-recommends cmake gcc clang clang-tidy clang-format make
+          sudo apt update && apt install -y --no-install-recommends cmake gcc clang clang-tidy clang-format make
 
       - name: Run clang-format
         run: |

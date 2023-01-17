@@ -19,8 +19,8 @@ jobs:
       # available in the current ubuntu-latest (Jammy 22.04, GCC 11.3.0) due to a bug: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101831
       - name: Install required packages
         run: |
-          apt update && apt install -y --no-install-recommends cmake clang libc-dev git make ca-certificates openssl libssl-dev locales binutils
-          apt remove -y gcc
+          sudo apt update && apt install -y --no-install-recommends cmake clang libc-dev git make ca-certificates openssl libssl-dev locales binutils
+          sudo apt remove -y gcc
 
       - name: Package the library
         run: |
