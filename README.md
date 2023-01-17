@@ -84,6 +84,10 @@ struct OuterFileExtractor : public tarparse::TarParser<OuterFileExtractor> {
 
 ```
 
+# Installation
+
+You can download the single-header version of the library from the artifacts of the [latest CI run](https://github.com/antmicro/libtarparse/actions/workflows/package-header-only.yml).
+
 # Development
 
 ## Formatting
